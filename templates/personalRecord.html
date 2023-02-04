@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="mt-4 p-5 bg-dark text-white rounded">
+        <center><h1>ประวัติส่วนตัว</h1></center>
+        <p>
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="{% static 'images/kob.jpg' %}"
+                     width="100%" height="100%">
+            </div>
+            <div class="col-lg-8">
+                <h4>ชื่อ : นายธนพนธ์ วีระนาวิน</h4>
+                <h4>ชื่อเล่น : กบ</h4>
+                <h4>เกิดวันที่ : 11 มิถุนายน 2544</h4>
+                <h4>กรุ๊ปเลือด : O  สัญชาติ : ไทย  เชื้อชาติ : ไทย  ศาสนา : พุทธ</h4>
+                <h4>ที่อยู่ : 50/2 ม.8 ตำบลหนองแจง อำเภอบึงสามพัน จังหวัดเพชรบูรณ์ 40000</h4>
+                <h4>เบอร์โทร : 0841201593</h4>
+                <h4>Email : thanaphon.wi@rmuti.ac.th</h4>
+            </div>
+        <p>
+        <div class="col-lg-8">
+                <h4>สีที่ชอบ : สีดำ สีแดง สีฟ้า สีเหลือง</h4>
+                <h4>อาหารที่ชอบ : ชาบู</h4>
+                <h4>อาหารที่ไม่ชอบ : ถั่วงอก</h4>
+                <h4>งานอดิเรก : เล่นบาส เล่นเกม</h4>
+            </div>
+        <div class="col-lg-4">
+                <img src="{% static 'images/kk1.jpg' %}"
+                     width="100%" height="100%">
+            </div>
+        <p>
+        <div class="col-lg-4">
+                <img src="{% static 'images/kk2.jpg' %}"
+                     width="100%" height="100%">
+            </div>
+        </div>
+    </div> <br>
+{% endblock %}

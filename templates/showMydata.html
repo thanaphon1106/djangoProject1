@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="mt-4 p-5 bg-dark text-white rounded">
+<div class="d-flex pt-3 bd-highlight">
+            <div class="p-2 bg-dark flex-fill text-white">
+            </div>
+        </div>
+        <br>
+    <div class="row">
+        <div class="col-6">
+          <b><p>รหัสประจำตัว : {{ id }}</p>
+            <p>ที่อยู่ : {{ add }}</p>
+            <p>น้ำหนัก : {{ weight }}</p>
+            <p>สี : {{ color }}</p>
+            <p>อาชีพ : {{ work }}</p></b>
+        </div>
+        <div class="col-6">
+           <b><p>ชื่อ : {{ name }}</p>
+            <p>เพศ : {{ gender }}</p>
+            <p>ส่วนสูง : {{ height }}</p>
+               <p>อาหารที่ชอบ : {{ food }}</p></b>
+        </div>
+    </div>
+        <div>
+           <table class="table table-success table-striped table-bordered border-primary">
+        <tr>
+            <th><h1>Product</h1></th>
+             <th><h1>Price</h1></th>
+             <th><h1>IMAGES</h1></th>
+        </tr>
+        {% for listproduct in productlist %}
+        <tr>
+            <td>{{ listproduct.0 }}</td>
+            <td>{{ listproduct.1 }}</td>
+            <td><img src="{% static listproduct.2 %}" alt="pic" id="pic" width="100"></td>
+        </tr>
+        {% endfor %}
+           </table>
+        </div>
+
+
+
+
+
+
+</div>
+{% endblock %}
