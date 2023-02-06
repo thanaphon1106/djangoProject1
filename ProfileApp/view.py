@@ -1,9 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
+
 
 # Create your views here.
-def test(request):
-    return HttpResponse("<H1> Hello Word <br> This is my Word wide web </H1>")
-
 def home(request):
     return render(request, 'home.html')
 
@@ -47,3 +45,49 @@ def showMydata(request):
     context = {'name':name,'id':id,'add':add,'gender':gender,'work':work,'weight':weight,
                'height':height,'color':color,'food':food,'productlist':productlist}
     return render(request,'showMydata.html',context)
+
+
+
+listOutProduct = []
+from ProfileApp.forms import *
+from ProfileApp.models import *
+
+
+def lisProduct(request):
+    context = {'product': listOutProduct}
+    return render(request, 'listProduct.html', context)
+
+
+def inputproduct(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form = form.cleaned_data
+            id = form.get('id')
+            name = form.get('name')
+            brand = form.get('brand')
+            price = form.get('price')
+            amount = form.get('amount')
+            detail = form.get('detail')
+
+            if amount < 3:
+                discountlate = 0
+            elif amount < 5:
+                discountlate = 0.05
+            else:
+                discountlate = 0.10
+
+            total = price * amount
+            discount = total * discountlate
+            net = total - discount
+
+            product = Product(id, name, brand, price, amount, detail, total, discount, net)
+            listOutProduct.append(product)
+            # return redirect('listProduct')
+            # return redirect('listProduct')
+        else:
+            form = ProductForm(form)
+    else:
+        form = ProductForm()
+    context = {"form": form}
+    return render(request, 'inputProduct.html', context)
